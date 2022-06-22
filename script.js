@@ -61,4 +61,28 @@ const displayController = (() => {
         };
     });
 
+    function endGame(){
+        if((gameBoard[0].mark === 'x' && gameBoard[1].mark === 'x' && gameBoard[2] === 'x') || 
+            (gameBoard[3].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[5] === 'x') ||
+            (gameBoard[6].mark === 'x' && gameBoard[7].mark === 'x' && gameBoard[8] === 'x') ||
+            (gameBoard[0].mark === 'x' && gameBoard[3].mark === 'x' && gameBoard[6] === 'x') || 
+            (gameBoard[1].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[7] === 'x') || 
+            (gameBoard[2].mark === 'x' && gameBoard[5].mark === 'x' && gameBoard[8] === 'x') || 
+            (gameBoard[0].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[8] === 'x') || 
+            (gameBoard[2].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[6] === 'x')){
+                // x wins
+
+            } else if((gameBoard[0].mark === 'o' && gameBoard[1].mark === 'o' && gameBoard[2] === 'o') || 
+            (gameBoard[3].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[5] === 'o') ||
+            (gameBoard[6].mark === 'o' && gameBoard[7].mark === 'o' && gameBoard[8] === 'o') ||
+            (gameBoard[0].mark === 'o' && gameBoard[3].mark === 'o' && gameBoard[6] === 'o') || 
+            (gameBoard[1].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[7] === 'o') || 
+            (gameBoard[2].mark === 'o' && gameBoard[5].mark === 'o' && gameBoard[8] === 'o') || 
+            (gameBoard[0].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[8] === 'o') || 
+            (gameBoard[2].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[6] === 'o')){
+                // o wins
+                
+            }
+    };
+
 })();
