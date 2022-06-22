@@ -4,14 +4,24 @@
 }
 
 #container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
     height: 100vh;
+    width: 100vw;
     background-color: gray;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 24px;
+}
+
+#announcer {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+#controls {
+    grid-area: 3 / 2 / 4 / 3;
 }
 
 #board {
+    grid-area: 2 / 2 / 3 / 3;
     height: 500px;
     width: 500px;
     display: grid;
