@@ -38,7 +38,7 @@ const displayController = (() => {
             e.target.innerHTML = '<svg width="150px" height="150px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L13.5 13.5M1.5 13.5L13.5 1.5" stroke="black"/></svg>';
             count++;
             let object = gameBoard.find(element => element.name === e.target.getAttribute('id'));
-            object.mark = 'x'; 
+            object.mark = 'x';
         } else if ((count % 2) === 0 && e.target.className === 'cell'){
             // mark it o
             e.target.className = 'x';
@@ -47,6 +47,8 @@ const displayController = (() => {
             let object = gameBoard.find(element => element.name === e.target.getAttribute('id'));
             object.mark = 'o'; 
         };
+
+        endGame();
     });
 
     newGame.addEventListener('click', () => {
@@ -62,27 +64,34 @@ const displayController = (() => {
     });
 
     function endGame(){
-        if((gameBoard[0].mark === 'x' && gameBoard[1].mark === 'x' && gameBoard[2] === 'x') || 
-            (gameBoard[3].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[5] === 'x') ||
-            (gameBoard[6].mark === 'x' && gameBoard[7].mark === 'x' && gameBoard[8] === 'x') ||
-            (gameBoard[0].mark === 'x' && gameBoard[3].mark === 'x' && gameBoard[6] === 'x') || 
-            (gameBoard[1].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[7] === 'x') || 
-            (gameBoard[2].mark === 'x' && gameBoard[5].mark === 'x' && gameBoard[8] === 'x') || 
-            (gameBoard[0].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[8] === 'x') || 
-            (gameBoard[2].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[6] === 'x')){
+        let announcer = document.getElementById('announcerText');
+
+        console.log(gameBoard[0].mark === 'x' && gameBoard[1].mark === 'x' && gameBoard[2].mark === 'x');
+
+        if((gameBoard[0].mark === 'x' && gameBoard[1].mark === 'x' && gameBoard[2].mark === 'x') || 
+            (gameBoard[3].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[5].mark === 'x') ||
+            (gameBoard[6].mark === 'x' && gameBoard[7].mark === 'x' && gameBoard[8].mark === 'x') ||
+            (gameBoard[0].mark === 'x' && gameBoard[3].mark === 'x' && gameBoard[6].mark === 'x') || 
+            (gameBoard[1].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[7].mark === 'x') || 
+            (gameBoard[2].mark === 'x' && gameBoard[5].mark === 'x' && gameBoard[8].mark === 'x') || 
+            (gameBoard[0].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[8].mark === 'x') || 
+            (gameBoard[2].mark === 'x' && gameBoard[4].mark === 'x' && gameBoard[6].mark === 'x')){
                 // x wins
+                announcer.innerHTML = 'X wins!';
+                console.log('X wins!');
 
             } else if((gameBoard[0].mark === 'o' && gameBoard[1].mark === 'o' && gameBoard[2] === 'o') || 
-            (gameBoard[3].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[5] === 'o') ||
-            (gameBoard[6].mark === 'o' && gameBoard[7].mark === 'o' && gameBoard[8] === 'o') ||
-            (gameBoard[0].mark === 'o' && gameBoard[3].mark === 'o' && gameBoard[6] === 'o') || 
-            (gameBoard[1].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[7] === 'o') || 
-            (gameBoard[2].mark === 'o' && gameBoard[5].mark === 'o' && gameBoard[8] === 'o') || 
-            (gameBoard[0].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[8] === 'o') || 
-            (gameBoard[2].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard[6] === 'o')){
+            (gameBoard[3].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard.mark[5] === 'o') ||
+            (gameBoard[6].mark === 'o' && gameBoard[7].mark === 'o' && gameBoard.mark[8] === 'o') ||
+            (gameBoard[0].mark === 'o' && gameBoard[3].mark === 'o' && gameBoard.mark[6] === 'o') || 
+            (gameBoard[1].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard.mark[7] === 'o') || 
+            (gameBoard[2].mark === 'o' && gameBoard[5].mark === 'o' && gameBoard.mark[8] === 'o') || 
+            (gameBoard[0].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard.mark[8] === 'o') || 
+            (gameBoard[2].mark === 'o' && gameBoard[4].mark === 'o' && gameBoard.mark[6] === 'o')){
                 // o wins
-                
-            }
+                announcer.innerHTML = 'O wins!';
+                console.log('O wins!');
+            };
     };
 
 })();
